@@ -17,7 +17,7 @@
         
     <!-- What type of point cloud is used and what ROS topic it comes from -->
     <param name="cloud_type" value="1" /> <!-- 0: PointCloud2, 1: CloudIndexed, 2: CloudSamples -->
-    <param name="cloud_topic" value="/cloud_indexed" />
+    <param name="cloud_topic" value="/segmented_cloud" />
     
     <!-- (optional) The ROS topic that the samples come from (default: an empty string) -->
     <param name="samples_topic" value="" />
@@ -41,6 +41,7 @@
     <!-- General parameters -->
     <param name="num_samples" value="100" />
     <param name="num_threads" value="4" />
+    <param name="align_optical_axis" value="true" />
     
     <!-- Parameters for local grasp candidate search -->
     <param name="nn_radius" value="0.01" />

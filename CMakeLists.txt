@@ -23,6 +23,13 @@ find_library(GENERATOR_LIB grasp_candidates_generator)
 find_path(GENERATOR_LIB_INCLUDE_DIR gpg/grasp.h)
 include_directories(${GENERATOR_LIB_INCLUDE_DIR})
 
+# CUDA
+find_package(CUDA)
+
+# Eigen
+find_package(Eigen REQUIRED)
+MESSAGE("Eigen: " ${EIGEN_INCLUDE_DIR})
+
 # CAFFE
 # IF(NOT EXISTS ${CAFFE_DIR})
   # SET(CAFFE_DIR "$ENV{CAFFE_DIR}")
@@ -153,6 +160,12 @@ add_executable(${PROJECT_NAME}_create_training_data src/nodes/create_training_da
 add_executable(${PROJECT_NAME}_classify_candidates src/nodes/classify_candidates.cpp)
 add_executable(${PROJECT_NAME}_test_occlusion src/tests/test_occlusion.cpp)
 
+add_dependencies(${PROJECT_NAME}_detect_grasps gpd_generate_messages_cpp)
+add_dependencies(${PROJECT_NAME}_generate_candidates gpd_generate_messages_cpp)
+add_dependencies(${PROJECT_NAME}_create_grasp_images gpd_generate_messages_cpp)
+add_dependencies(${PROJECT_NAME}_create_training_data gpd_generate_messages_cpp)
+add_dependencies(${PROJECT_NAME}_classify_candidates gpd_generate_messages_cpp)
+add_dependencies(${PROJECT_NAME}_test_occlusion gpd_generate_messages_cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above

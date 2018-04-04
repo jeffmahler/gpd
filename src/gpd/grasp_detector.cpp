@@ -23,6 +23,7 @@ GraspDetector::GraspDetector(ros::NodeHandle& node)
   node.param("num_samples", hand_search_params.num_samples_, 500);
   node.param("num_threads", hand_search_params.num_threads_, 1);
   node.param("rotation_axis", hand_search_params.rotation_axis_, 2); // cannot be changed
+  node.param("align_optical_axis", hand_search_params.align_optical_axis_, true); // cannot be changed
 
   // Read plotting parameters.
   node.param("plot_samples", plot_samples_, false);

@@ -1,5 +1,5 @@
 #include "../../../gpd/include/nodes/grasp_detection_node.h"
-
+#include <omp.h>
 
 /** constants for input point cloud types */
 const int GraspDetectionNode::POINT_CLOUD_2 = 0; ///< sensor_msgs/PointCloud2
@@ -120,10 +120,14 @@ std::vector<Grasp> GraspDetectionNode::detectGraspPosesInTopic()
   else
   {
     // preprocess the point cloud
+    double preproc_start = omp_get_wtime();
     grasp_detector_->preprocessPointCloud(*cloud_camera_);
-
+    std::cout << "====> PREPROC TIME: " << omp_get_wtime() - preproc_start << std::endl;
+    
     // detect grasps in the point cloud
+    double detect_start = omp_get_wtime();
     grasps = grasp_detector_->detectGrasps(*cloud_camera_);
+    std::cout << "====> DETECT TIME: " << omp_get_wtime() - detect_start << std::endl;
   }
 
   // Publish the selected grasps.

@@ -37,7 +37,7 @@
     <rosparam param="camera_position"> [0, 0, 0] </rosparam>
 
     <!-- General parameters -->
-    <param name="num_samples" value="2000" />
+    <param name="num_samples" value="10000" />
     <param name="num_threads" value="1" /> 
     <param name="gaussian_table_size" value="10000000" />    
     

@@ -9,8 +9,8 @@
   <param name="$(arg node)/trained_file" value="$(arg caffe_path)/bottles_boxes_cans_5xNeg.caffemodel" />
     
   <!-- Grasp Image Parameters -->
-  <param name="$(arg node)/image_outer_diameter" value="0.12" /> 
-  <param name="$(arg node)/image_depth" value="0.06" />
+  <param name="$(arg node)/image_outer_diameter" value="0.07" /> 
+  <param name="$(arg node)/image_depth" value="0.08" />
   <param name="$(arg node)/image_height" value="0.02" />
   <param name="$(arg node)/image_size" value="60" />  
   <param name="$(arg node)/image_num_channels" value="3" />  

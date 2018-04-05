@@ -11,7 +11,7 @@
   <param name="$(arg node)/trained_file" value="$(arg caffe_path)/single_view_15_channels.caffemodel" />
   
   <!-- Grasp Image Parameters -->
-  <param name="$(arg node)/image_outer_diameter" value="0.05" /> 
+  <param name="$(arg node)/image_outer_diameter" value="0.07" /> 
   <param name="$(arg node)/image_depth" value="0.08" />
   <param name="$(arg node)/image_height" value="0.02" />
   <param name="$(arg node)/image_size" value="60" />  
